@@ -1,0 +1,10 @@
+$MainColor: slategrey;
+$MainTextColor: white;
+
+body {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    background-color: $MainColor;
+    text-align: center;
+}

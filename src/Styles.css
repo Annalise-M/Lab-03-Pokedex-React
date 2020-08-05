@@ -1,0 +1,13 @@
+body {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: slategrey;
+  text-align: center;
+}
+/*# sourceMappingURL=Styles.css.map */
