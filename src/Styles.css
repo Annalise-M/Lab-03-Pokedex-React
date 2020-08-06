@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+button {
+  color: #ea0c0c;
+}
+
+header {
+  color: #ea0c0c;
+}
+
+body {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: slategrey;
+  text-align: center;
+  height: 100vh;
+  width: auto;
+}
+
+.Box {
+  background-color: #fca6b5;
+}
+/*# sourceMappingURL=Styles.css.map */
