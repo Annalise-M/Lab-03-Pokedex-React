@@ -1,13 +1,19 @@
 $MainColor: slategrey;
 $MainTextColor: white;
 $AltBackColor: rgb(252, 166, 181);
+$AllButtonColor: rgb(234, 12, 12);
 
 .App {
     text-align: center;
 }
 
-.Box {
-    background-color: $AltBackColor;
+button {
+    color: $AllButtonColor;
+    
+}
+
+header {
+    color: $AllButtonColor;
 }
 
 body {
@@ -18,5 +24,9 @@ body {
     text-align: center;
     height: 100vh;
     width: auto;
+}
+
+.Box {
+    background-color: $AltBackColor;
 }
 
