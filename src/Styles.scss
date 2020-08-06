@@ -1,5 +1,14 @@
 $MainColor: slategrey;
 $MainTextColor: white;
+$AltBackColor: rgb(252, 166, 181);
+
+.App {
+    text-align: center;
+}
+
+.Box {
+    background-color: $AltBackColor;
+}
 
 body {
     align-content: center;
@@ -7,4 +16,7 @@ body {
     justify-content: center;
     background-color: $MainColor;
     text-align: center;
+    height: 100vh;
+    width: auto;
 }
+

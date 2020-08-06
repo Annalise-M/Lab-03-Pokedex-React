@@ -1,3 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.Box {
+  background-color: #fca6b5;
+}
+
 body {
   -ms-flex-line-pack: center;
       align-content: center;
@@ -9,5 +17,7 @@ body {
           justify-content: center;
   background-color: slategrey;
   text-align: center;
+  height: 100vh;
+  width: auto;
 }
 /*# sourceMappingURL=Styles.css.map */
