@@ -1,13 +1,14 @@
 .App {
   text-align: center;
+  -webkit-text-decoration-color: whitesmoke;
+          text-decoration-color: whitesmoke;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 button {
-  color: #ea0c0c;
-}
-
-header {
-  color: #ea0c0c;
+  color: rgba(234, 12, 12, 0.938);
+  margin: 20px;
+  max-width: auto;
 }
 
 body {
@@ -19,13 +20,17 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: slategrey;
+  background-color: #3a4249;
   text-align: center;
   height: 100vh;
   width: auto;
 }
 
 .Box {
-  background-color: #fca6b5;
+  background-color: rgba(234, 12, 12, 0.938);
+}
+
+.Styles {
+  background-color: rgba(234, 12, 12, 0.938);
 }
 /*# sourceMappingURL=Styles.css.map */
