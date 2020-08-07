@@ -12,9 +12,12 @@ button {
     
 }
 
-header {
-    color: $AllButtonColor;
-}
+// work on coloring with header & layout
+// header {
+//     background-color: $AllButtonColor;
+//     border-color: red 4px;
+// }
+
 
 body {
     align-content: center;
@@ -27,6 +30,10 @@ body {
 }
 
 .Box {
+    background-color: $AltBackColor;
+}
+
+.Styles {
     background-color: $AltBackColor;
 }
 
