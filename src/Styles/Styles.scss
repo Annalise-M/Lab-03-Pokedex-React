@@ -1,0 +1,36 @@
+$MainColor: rgb(58, 66, 73);
+$MainTextColor: white;
+$AllButtonColor: rgba(234, 12, 12, 0.938);
+
+
+.App {
+    text-align: center;
+    text-decoration-color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+    color: $AllButtonColor;
+    margin: 20px;
+    max-width: auto;
+
+}
+
+body {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    background-color: $MainColor;
+    text-align: center;
+    height: 100vh;
+    width: auto;
+}
+
+.Box {
+    background-color: $AllButtonColor;
+}
+
+.Styles {
+    background-color: $AllButtonColor;
+}
+

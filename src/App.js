@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import SearchBar from './SearchPage/SearchBar.js';
 // import DetailPage from './DetailPage/DetailPage.js';
 import Header from './Header.js';
-import './Styles.css';
+import './Styles/Styles.css';
 
 
 export default class App extends Component {

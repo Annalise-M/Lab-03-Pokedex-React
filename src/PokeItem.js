@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Styles.css';
+import './Styles/Styles.css';
 
 export default class PokeItem extends Component {
 

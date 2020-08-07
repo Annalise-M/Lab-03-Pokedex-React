@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../Styles.css';
 import request from 'superagent';
 
 
@@ -7,7 +6,6 @@ export default class DetailPage extends Component {
     state = { pokemon: null }
 
     
-
     componentDidMount = async () => {
         const name = this.props.match.params.myPokemonId;
 

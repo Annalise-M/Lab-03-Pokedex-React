@@ -23,7 +23,7 @@ export default class SearchBar extends Component {
         render(){
             
             return (
-                <div>
+                <div className="Box">
                     <input onChange={(e) => this.setState({ search: e.target.value })} />
                     <select onChange={(e) => { this.setState({ searchBy: e.target.value })} }>
                         <option value='pokemon'>Name</option>
