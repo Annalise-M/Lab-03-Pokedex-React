@@ -19,7 +19,7 @@ export default class Header extends Component {
                         <p><Link to="/detail">Detail</Link></p>
                     </header>
                     <Switch>
-                <Route 
+                <Route
                     path="/" 
                     exact
                     render={(routerProps) => <SearchBar {...routerProps} />} 
@@ -35,3 +35,4 @@ export default class Header extends Component {
         )
     }
 }
+
