@@ -11,6 +11,7 @@ export default class App extends Component {
       <>
         <div>
             <Header />
+              {/* <div className={styles.Box}></div> */}
             {/* <Switch>
             <Route 
               path="/" 

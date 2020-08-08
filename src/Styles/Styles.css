@@ -9,6 +9,8 @@ button {
   color: rgba(234, 12, 12, 0.938);
   margin: 20px;
   max-width: auto;
+  -webkit-text-decoration-color: #3a4249;
+          text-decoration-color: #3a4249;
 }
 
 body {
@@ -20,17 +22,23 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #3a4249;
+  background-color: white;
   text-align: center;
   height: 100vh;
   width: auto;
+  -webkit-text-decoration-color: whitesmoke;
+          text-decoration-color: whitesmoke;
 }
 
 .Box {
   background-color: rgba(234, 12, 12, 0.938);
+  -webkit-text-decoration-color: whitesmoke;
+          text-decoration-color: whitesmoke;
 }
 
 .Styles {
   background-color: rgba(234, 12, 12, 0.938);
+  -webkit-text-decoration-color: whitesmoke;
+          text-decoration-color: whitesmoke;
 }
 /*# sourceMappingURL=Styles.css.map */
