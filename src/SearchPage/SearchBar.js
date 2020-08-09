@@ -9,7 +9,8 @@ export default class SearchBar extends Component {
         isLoading: false,
         pokeState: [],
         currentPage: 1,
-        totalPages: 1
+        totalPages: 1,
+        counter: 0
     }
 
     componentDidMount = async () => {
@@ -31,10 +32,11 @@ export default class SearchBar extends Component {
     
     makeRequest = async () => {
         this.setState({ isLoading: true });
+            
 
         const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.currentPage}&perPage=20&${this.state.searchBy}=${this.state.search}`);
 
-        await this.setState({
+        this.setState({
             pokeState: data.body.results,
             totalPages: Math.ceil(data.body.count / 20),
             isLoading: false,
@@ -51,21 +53,32 @@ export default class SearchBar extends Component {
 
 
     handleClickNext = async () => {
+        console.log(this.state.counter);
+
         await this.setState({ currentPage: Number(this.state.currentPage) + 1 })
 
+        this.setState({
+            counter: this.state.counter + 1,
+        })
+        
         await this.makeRequest();
     }
 
 
     handleClickBack = async () => {
+        console.log(this.state.counter);
         await this.setState({ currentPage: Number(this.state.currentPage) - 1 })
         
+        this.setState({
+            counter: this.state.counter - 1,
+        })
+
         await this.makeRequest();
     }
         
     handleClick = async (e) => {
         e.preventDefault();
-    
+        
         await this.setState({
             currentPage: 1
         })
@@ -103,11 +116,12 @@ export default class SearchBar extends Component {
                         </select>
                         <button onClick={this.handleClick}>Fetch Pokemon!</button>
                         <button onClick={this.handleClickBack}>Back</button>
+                        <p value={this.props.counter}></p>
                         <button onClick={this.handleClickNext}>Next</button>
                         {
                             this.state.isLoading
                             ? <p>Loading</p>
-                            : this.state.pokeState.map(poke => <ListPage pokemon={poke} />)
+                            : <ListPage pokeState={this.state.pokeState}/>
                         }
                     </div>
                 </form>

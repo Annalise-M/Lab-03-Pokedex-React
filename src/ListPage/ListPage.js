@@ -5,27 +5,21 @@ export default class ListPage extends Component {
     render() {
         const {
             pokeState,
-            handleClickNext,
-            handleClickBack,
-            currentPage,
-            totalPages
+            // handleClickNext,
+            // handleClickBack,
+            // currentPage,
+            // totalPages
         } = this.props;
 
         return (
             <div>
                 {
-                    pokeState.length > 0 && <div>
-                        {
-                            Number(currentPage) !== 1
-                            && <button onClick={handleClickBack}>Back</button>
-                        }
-                        {
-                            Number(currentPage) !== Number(totalPages)
-                            && <button onClick={handleClickNext}>Next</button>
-                        }
-                        {currentPage} of {totalPages}
+                    // This is where I left off last
+                    // pokeState.length > 0 && <div>
                         
-                    </div>
+                    //{currentPage}  {totalPages}
+                        
+                    // </div>
                 }
                     <div style={{
                         display: 'flex',

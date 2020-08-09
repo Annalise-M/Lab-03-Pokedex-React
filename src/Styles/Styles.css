@@ -9,8 +9,8 @@ button {
   color: rgba(234, 12, 12, 0.938);
   margin: 20px;
   max-width: auto;
-  -webkit-text-decoration-color: #3a4249;
-          text-decoration-color: #3a4249;
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: white;
+  background-color: rgba(234, 12, 12, 0.938);
   text-align: center;
   height: 100vh;
   width: auto;
@@ -31,7 +31,7 @@ body {
 }
 
 .Box {
-  background-color: rgba(234, 12, 12, 0.938);
+  background-color: #3a4249;
   -webkit-text-decoration-color: whitesmoke;
           text-decoration-color: whitesmoke;
 }
