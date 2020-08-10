@@ -1,36 +1,49 @@
 $MainColor: rgb(58, 66, 73);
+$BoxColor: rgb(94, 106, 117);
 $MainTextColor: white;
 $AllButtonColor: rgba(234, 12, 12, 0.938);
 
-
 .App {
     text-align: center;
-    text-decoration-color: whitesmoke;
+    text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
 }
 
+//button controls all the coloring for the site for some reason (check out the div container to see what's up
 button {
     color: $AllButtonColor;
     margin: 20px;
     max-width: auto;
-
+    text-decoration-color: $MainTextColor;
 }
 
 body {
     align-content: center;
     display: flex;
     justify-content: center;
-    background-color: $MainColor;
+    background-color: $AllButtonColor;
     text-align: center;
     height: 100vh;
     width: auto;
+    text-decoration-color: whitesmoke;
 }
 
 .Box {
-    background-color: $AllButtonColor;
+    background-color: $MainColor;
+    text-decoration-color: whitesmoke;
+}
+
+.Results {
+    background-color: $BoxColor;
 }
 
 .Styles {
     background-color: $AllButtonColor;
+    text-decoration-color: whitesmoke;
 }
+
+// .SideBar {
+//     background-attachment: $AllButtonColor;
+//     display: flex;
+// }
 

@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  -webkit-text-decoration-color: whitesmoke;
-          text-decoration-color: whitesmoke;
+  text-decoration: none;
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -9,6 +8,8 @@ button {
   color: rgba(234, 12, 12, 0.938);
   margin: 20px;
   max-width: auto;
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
 }
 
 body {
@@ -20,17 +21,27 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #3a4249;
+  background-color: rgba(234, 12, 12, 0.938);
   text-align: center;
   height: 100vh;
   width: auto;
+  -webkit-text-decoration-color: whitesmoke;
+          text-decoration-color: whitesmoke;
 }
 
 .Box {
-  background-color: rgba(234, 12, 12, 0.938);
+  background-color: #3a4249;
+  -webkit-text-decoration-color: whitesmoke;
+          text-decoration-color: whitesmoke;
+}
+
+.Results {
+  background-color: #5e6a75;
 }
 
 .Styles {
   background-color: rgba(234, 12, 12, 0.938);
+  -webkit-text-decoration-color: whitesmoke;
+          text-decoration-color: whitesmoke;
 }
 /*# sourceMappingURL=Styles.css.map */
