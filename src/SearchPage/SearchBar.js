@@ -27,14 +27,14 @@ export default class SearchBar extends Component {
             });
         }
         
-        await this.makeRequest()
+        await this.makeRequest();
     }
     
 
     makeRequest = async () => {
         this.setState({ isLoading: true });
             
-        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.searchBy}&perPage=20&${this.state.searchBy}=${this.state.search}`);
+        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.currentPage}&perPage=20&${this.state.searchBy}=${this.state.search}`);
 
         await this.setState({
             pokeState: data.body.results,
@@ -48,10 +48,9 @@ export default class SearchBar extends Component {
         params.set('searchBy', this.state.searchBy);
         params.set('page', this.state.currentPage);
 
-console.log(params.UrlSearchParams);
-
-        this.props.history.push('?' + params.toString())
+        this.props.history.push('?' + params.toString());
     }
+
 
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -59,44 +58,31 @@ console.log(params.UrlSearchParams);
         await this.setState({
             currentPage: 1
         })
-        await this.makeRequest()
+        await this.makeRequest();
     }
 
+        
+    handleClick = async (e) => {
+        e.preventDefault();
+        
+        await this.setState({
+            currentPage: 1
+        })
+        await this.makeRequest();
+    }
+
+    
     handleClickNext = async () => {
         await this.setState({ currentPage: Number(this.state.currentPage) + 1 })
         
-        this.setState({
-            counter: this.state.counter + 1,
-        })
-        
         await this.makeRequest();
-
-        // console.log(this.state.counter);
     }
 
 
     handleClickBack = async () => {
         await this.setState({ currentPage: Number(this.state.currentPage) - 1 })
         
-        this.setState({
-            counter: this.state.counter - 1,
-        })
-        
         await this.makeRequest();
-
-    }
-
-        
-    handleClick = async (e) => {
-        // const option = e.target.value;
-
-        // this.setState({ filter: option })
-        e.preventDefault();
-        
-        await this.setState({
-            currentPage: 1
-        })
-        await this.makeRequest()
     }
 
 
@@ -109,7 +95,9 @@ console.log(params.UrlSearchParams);
     //         pokeState: data.body.results,
     //         isLoading: false
     //     })}
+
         render(){
+            console.log(this.state.currentPage)
             const {
                 isLoading,
                 pokeState,
@@ -130,22 +118,7 @@ console.log(params.UrlSearchParams);
                             <option value='ability_1'>Ability</option>
                             <option value='ability_hidden'>Hidden Ability</option>
                         </select>
-                        <button onClick={this.handleClick}>Fetch Pokemon!</button>
-                        {
-                            pokeState.length > 0 && <div> 
-                                {
-                                    Number(currentPage) !== 1
-                                    && 
-                                    <button onClick={this.handleClickBack}>Back</button>
-                                }
-                                {
-                                    Number(currentPage) !== Number(totalPages) 
-                                    &&
-                                    <button onClick={this.handleClickNext}>Next</button>
-                                }
-                                {currentPage} out of {totalPages}
-                            </div>
-                        }
+                        <button>Fetch Pokemon!</button>
                         
                     </div>
                     <div className="Results">
