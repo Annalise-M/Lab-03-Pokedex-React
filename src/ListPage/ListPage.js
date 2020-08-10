@@ -13,14 +13,11 @@ export default class ListPage extends Component {
 
         return (
             <div>
-                {
-                    // This is where I left off last
-                    // pokeState.length > 0 && <div>
+                {/* {
+                    pokeState.length > 0 && <div>
                         
-                    //{currentPage}  {totalPages}
-                        
-                    // </div>
-                }
+                    </div>
+                } */}
                     <div style={{
                         display: 'flex',
                         flexWrap: 'wrap'

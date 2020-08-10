@@ -9,8 +9,7 @@ export default class SearchBar extends Component {
         isLoading: false,
         pokeState: [],
         currentPage: 1,
-        totalPages: 1,
-        counter: 0
+        totalPages: 1
     }
 
     componentDidMount = async () => {
@@ -27,16 +26,17 @@ export default class SearchBar extends Component {
                 search: search
             });
         }
+        
         await this.makeRequest()
     }
     
+
     makeRequest = async () => {
         this.setState({ isLoading: true });
             
+        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.searchBy}&perPage=20&${this.state.searchBy}=${this.state.search}`);
 
-        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.currentPage}&perPage=20&${this.state.searchBy}=${this.state.search}`);
-
-        this.setState({
+        await this.setState({
             pokeState: data.body.results,
             totalPages: Math.ceil(data.body.count / 20),
             isLoading: false,
@@ -44,39 +44,53 @@ export default class SearchBar extends Component {
 
         const params = new URLSearchParams(this.props.location.search);
 
-        params.set('search', this.state.seach);
-        params.set('searchBy', this.state.seachBy);
+        params.set('search', this.state.search);
+        params.set('searchBy', this.state.searchBy);
         params.set('page', this.state.currentPage);
+
+console.log(params.UrlSearchParams);
 
         this.props.history.push('?' + params.toString())
     }
 
+    handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await this.setState({
+            currentPage: 1
+        })
+        await this.makeRequest()
+    }
 
     handleClickNext = async () => {
-        console.log(this.state.counter);
-
         await this.setState({ currentPage: Number(this.state.currentPage) + 1 })
-
+        
         this.setState({
             counter: this.state.counter + 1,
         })
         
         await this.makeRequest();
+
+        // console.log(this.state.counter);
     }
 
 
     handleClickBack = async () => {
-        console.log(this.state.counter);
         await this.setState({ currentPage: Number(this.state.currentPage) - 1 })
         
         this.setState({
             counter: this.state.counter - 1,
         })
-
+        
         await this.makeRequest();
+
     }
+
         
     handleClick = async (e) => {
+        // const option = e.target.value;
+
+        // this.setState({ filter: option })
         e.preventDefault();
         
         await this.setState({
@@ -85,29 +99,31 @@ export default class SearchBar extends Component {
         await this.makeRequest()
     }
 
-    makeRequest = async () => {
-        this.setState({ isLoading: true })
+
+    // makeRequest = async () => {
+    //     this.setState({ isLoading: true })
     
-        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=1000&${this.state.searchBy}=${this.state.search}`);
+    //     const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=1000&${this.state.searchBy}=${this.state.search}`);
     
-        this.setState({
-            pokeState: data.body.results,
-            isLoading: false
-        })}
+    //     this.setState({
+    //         pokeState: data.body.results,
+    //         isLoading: false
+    //     })}
         render(){
-            // const {
-            //     isLoading,
-            //     pokeState,
-            //     currentPage,
-            //     totalPages,
-            // } = this.state;
+            const {
+                isLoading,
+                pokeState,
+                currentPage,
+                totalPages,
+            } = this.state;
             
             return (
             <main>
-                <form onSubmit={this.handleClick}> 
-                    <div className="Box">
-                        <input onChange={(e) => this.setState({ search: e.target.value })} />
-                        <select onChange={(e) => { this.setState({ searchBy: e.target.value })} }>
+                <div className="SideBar">
+                <form onSubmit={this.handleSubmit}> 
+                    <div className="SideBar">
+                        <input onChange={(e) => this.setState({ search: e.target.value })} value={this.state.search} />
+                        <select onChange={(e) => { this.setState({ searchBy: e.target.value })} }value={this.state.searchBy} >
                             <option value='pokemon'>Name</option>
                             <option value='type'>Type</option>
                             <option value='shapes'>Shapes</option>
@@ -115,16 +131,37 @@ export default class SearchBar extends Component {
                             <option value='ability_hidden'>Hidden Ability</option>
                         </select>
                         <button onClick={this.handleClick}>Fetch Pokemon!</button>
-                        <button onClick={this.handleClickBack}>Back</button>
-                        <p value={this.props.counter}></p>
-                        <button onClick={this.handleClickNext}>Next</button>
                         {
-                            this.state.isLoading
+                            pokeState.length > 0 && <div> 
+                                {
+                                    Number(currentPage) !== 1
+                                    && 
+                                    <button onClick={this.handleClickBack}>Back</button>
+                                }
+                                {
+                                    Number(currentPage) !== Number(totalPages) 
+                                    &&
+                                    <button onClick={this.handleClickNext}>Next</button>
+                                }
+                                {currentPage} out of {totalPages}
+                            </div>
+                        }
+                        
+                    </div>
+                    <div className="Results">
+                        {
+                            isLoading
                             ? <p>Loading</p>
-                            : <ListPage pokeState={this.state.pokeState}/>
+                            : <ListPage 
+                                handleClickNext={this.handleClickNext} handleClickBack={this.handleClickBack}
+                                currentPage={currentPage}
+                                pokeState={pokeState}
+                                totalPages={totalPages} 
+                            />
                         }
                     </div>
                 </form>
+                </div>
             </main>    
             )
                 

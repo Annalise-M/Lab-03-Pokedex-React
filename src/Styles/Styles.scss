@@ -1,10 +1,11 @@
 $MainColor: rgb(58, 66, 73);
+$BoxColor: rgb(94, 106, 117);
 $MainTextColor: white;
 $AllButtonColor: rgba(234, 12, 12, 0.938);
 
 .App {
     text-align: center;
-    text-decoration-color: whitesmoke;
+    text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -32,9 +33,17 @@ body {
     text-decoration-color: whitesmoke;
 }
 
+.Results {
+    background-color: $BoxColor;
+}
+
 .Styles {
     background-color: $AllButtonColor;
     text-decoration-color: whitesmoke;
 }
 
+// .SideBar {
+//     background-attachment: $AllButtonColor;
+//     display: flex;
+// }
 

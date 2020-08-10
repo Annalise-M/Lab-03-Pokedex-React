@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  -webkit-text-decoration-color: whitesmoke;
-          text-decoration-color: whitesmoke;
+  text-decoration: none;
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -34,6 +33,10 @@ body {
   background-color: #3a4249;
   -webkit-text-decoration-color: whitesmoke;
           text-decoration-color: whitesmoke;
+}
+
+.Results {
+  background-color: #5e6a75;
 }
 
 .Styles {

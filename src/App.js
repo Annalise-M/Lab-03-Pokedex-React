@@ -11,19 +11,6 @@ export default class App extends Component {
       <>
         <div>
             <Header />
-              {/* <div className={styles.Box}></div> */}
-            {/* <Switch>
-            <Route 
-              path="/" 
-              exact
-              render={(routerProps) => <SearchBar {...routerProps} />} 
-            />
-            <Route 
-              path="/detail/:myPokemonId" 
-              exact
-              render={(routerProps) => <DetailPage {...routerProps} />} 
-            />
-            </Switch> */}
         </div>
         </>
     )
